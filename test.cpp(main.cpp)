@@ -1,0 +1,30 @@
+#include <iostream>
+#include"redblacktree.h"
+using namespace std;
+
+int main()
+{
+	int i;
+	int a[20] = { 12,1,9,2,0,11,7,19,4,15,18,5,14,13,10,16,6,3,8,17 };
+	RBTree<int> b;
+	for (i = 0; i < 20; i++)
+		b.Insert(a[i]);
+	cout << "插入元素结束！" << endl;
+	cout << "树的结点数目为" << b.size() << endl;
+	cout << "以递归方法遍历二叉树：" << endl;
+	cout << "前序遍历结果：";
+	b.preOrder(b.Root(), visitRB);
+	cout << endl;
+	cout << "中序遍历结果：";
+	b.inOrder(b.Root(), visitRB);
+	cout << endl;
+	cout << "后序遍历结果：";
+	b.postOrder(b.Root(), visitRB);
+	cout << endl;
+	cout << "删除后:" << endl;
+	b.DeleteRBT(b.Root(), 12);
+	cout << "树的结点数目为" << b.size() << endl;
+	cout << "中序遍历结果：";
+	b.inOrder(b.Root(), visitRB);
+	return 0;
+}
